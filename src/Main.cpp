@@ -1,7 +1,9 @@
 #include <SFML/Graphics.hpp>
 
 int main() {
-    auto window = sf::RenderWindow(sf::VideoMode(800, 600), "Simple Pendulum");
+    sf::ContextSettings settings;
+    settings.antialiasingLevel = 8;
+    auto window = sf::RenderWindow(sf::VideoMode(800, 600), "Simple Pendulum", sf::Style::Close, settings);
     window.setFramerateLimit(60);
     while (window.isOpen()) {
         auto event = sf::Event();
