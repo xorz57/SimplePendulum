@@ -4,7 +4,7 @@
 #include <numbers>
 
 int main() {
-    auto window = sf::RenderWindow(sf::VideoMode(800, 600), "Simple Pendulum", sf::Style::Close);
+    auto window = sf::RenderWindow(sf::VideoMode(800, 600), sf::String("Simple Pendulum"), sf::Style::Close, sf::ContextSettings(0U, 0U, 8U));
     window.setFramerateLimit(60);
 
     sf::CircleShape frictionlessPivot{2};
