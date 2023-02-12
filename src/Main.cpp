@@ -16,11 +16,12 @@ int main() {
 
     sf::VertexArray masslessRod(sf::LineStrip, 2);
 
-    float angularAcceleration = 0;
-    float angularVelocity = 0;
-    float theta = std::numbers::pi_v<float> / 4;
-    float g = 1;
-    float l = 400;
+    float angularAcceleration{0};
+    float angularVelocity{0};
+    float theta{std::numbers::pi_v<float> / 4};
+    float zeta{0.999f};
+    float g{1};
+    float l{400};
 
     while (window.isOpen()) {
         auto event = sf::Event();
@@ -30,12 +31,11 @@ int main() {
             }
         }
 
-        bob.setPosition(frictionlessPivot.getPosition() + l * sf::Vector2f(std::sin(theta), std::cos(theta)));
         angularAcceleration = - g / l * std::sin(theta);
         angularVelocity += angularAcceleration;
         theta += angularVelocity;
-
-        theta *= 0.999f;
+        theta *= zeta;
+        bob.setPosition(frictionlessPivot.getPosition() + l * sf::Vector2f(std::sin(theta), std::cos(theta)));
 
         masslessRod[0].position = frictionlessPivot.getPosition();
         masslessRod[1].position = bob.getPosition();
