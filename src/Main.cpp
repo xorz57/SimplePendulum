@@ -34,8 +34,8 @@ int main() {
 
         angularAcceleration = - g / l * std::sin(theta);
         angularVelocity += angularAcceleration;
+        angularVelocity *= zeta;
         theta += angularVelocity;
-        theta *= zeta;
         bob.setPosition(frictionlessPivot.getPosition() + l * sf::Vector2f(std::sin(theta), std::cos(theta)));
 
         masslessRod[0].position = frictionlessPivot.getPosition();
