@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.24)
 project(SimplePendulum)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 
 find_package(SFML COMPONENTS system window graphics REQUIRED)
 
