@@ -19,9 +19,10 @@ int main() {
     float angularAcceleration{0};
     float angularVelocity{0};
     float theta{std::numbers::pi_v<float> / 4};
-    float zeta{0.999f};
-    float g{1};
-    float l{400};
+
+    const float zeta{0.999f};
+    const float g{1};
+    const float l{400};
 
     while (window.isOpen()) {
         auto event = sf::Event();
