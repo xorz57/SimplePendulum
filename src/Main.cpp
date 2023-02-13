@@ -4,15 +4,15 @@
 #include <numbers>
 
 int main() {
-    auto window = sf::RenderWindow(sf::VideoMode(800, 600), sf::String("Simple Pendulum"), sf::Style::Close, sf::ContextSettings(0U, 0U, 8U));
-    window.setFramerateLimit(60);
+    auto window = sf::RenderWindow(sf::VideoMode(800U, 600U), sf::String("Simple Pendulum"), sf::Style::Close, sf::ContextSettings(0U, 0U, 8U));
+    window.setFramerateLimit(60U);
 
-    sf::CircleShape frictionlessPivot{2};
-    frictionlessPivot.setOrigin(2, 2);
-    frictionlessPivot.setPosition(400, 0);
+    sf::CircleShape frictionlessPivot{2.f};
+    frictionlessPivot.setOrigin(2.f, 2.f);
+    frictionlessPivot.setPosition(400.f, 0.f);
 
-    sf::CircleShape bob{20};
-    bob.setOrigin(20, 20);
+    sf::CircleShape bob{20.f};
+    bob.setOrigin(20.f, 20.f);
 
     sf::VertexArray masslessRod(sf::LineStrip, 2);
 
