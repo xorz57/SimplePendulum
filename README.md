@@ -1,2 +1,2 @@
 # SimplePendulum
-Simple Pendulum Simulation written in C++ using SFML
+Simple Pendulum written in C++ using SFML
