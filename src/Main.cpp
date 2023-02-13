@@ -16,13 +16,13 @@ int main() {
 
     sf::VertexArray masslessRod(sf::LineStrip, 2);
 
-    float angularAcceleration{0};
-    float angularVelocity{0};
-    float theta{std::numbers::pi_v<float> / 4};
+    float angularAcceleration{0.f};
+    float angularVelocity{0.f};
+    float theta{std::numbers::pi_v<float> / 4.f};
 
     const float zeta{0.999f};
-    const float g{1};
-    const float l{400};
+    const float g{1.f};
+    const float l{400.f};
 
     while (window.isOpen()) {
         auto event = sf::Event();
