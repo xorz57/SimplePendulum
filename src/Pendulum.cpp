@@ -14,13 +14,12 @@ void Pendulum::update(const sf::Time &deltaTime) {
     mAngularVelocity *= mZeta;
     mTheta += mAngularVelocity;
     mBob.setPosition(mFrictionlessPivot.getPosition() + mL * sf::Vector2f(std::sin(mTheta), std::cos(mTheta)));
+    mMasslessRod[0].position = mFrictionlessPivot.getPosition();
+    mMasslessRod[1].position = mBob.getPosition();
 }
 
 void Pendulum::draw(sf::RenderTarget &target, sf::RenderStates states) const {
-    sf::VertexArray masslessRod(sf::LineStrip, 2);
-    masslessRod[0].position = mFrictionlessPivot.getPosition();
-    masslessRod[1].position = mBob.getPosition();
-    target.draw(masslessRod, states);
+    target.draw(mMasslessRod, states);
     target.draw(mFrictionlessPivot, states);
     target.draw(mBob, states);
 }

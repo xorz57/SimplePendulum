@@ -15,6 +15,7 @@ public:
 private:
     sf::CircleShape mFrictionlessPivot{2.f};
     sf::CircleShape mBob{20.f};
+    sf::VertexArray mMasslessRod{sf::LineStrip, 2};
 
     float mAngularAcceleration{0.f};
     float mAngularVelocity{0.f};
