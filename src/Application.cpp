@@ -5,7 +5,6 @@
 Application::Application() {
     mWindow.create(mMode, mTitle, sf::Style::Close, mSettings);
     mWindow.setFramerateLimit(60U);
-
     mFrictionlessPivot.setOrigin(2.f, 2.f);
     mFrictionlessPivot.setPosition(400.f, 0.f);
     mBob.setOrigin(20.f, 20.f);
@@ -31,7 +30,7 @@ void Application::processEvents() {
 }
 
 void Application::update(sf::Time deltaTime) {
-    mAngularAcceleration = - mG / mL * std::sin(mTheta);
+    mAngularAcceleration = -mG / mL * std::sin(mTheta);
     mAngularVelocity += mAngularAcceleration;
     mAngularVelocity *= mZeta;
     mTheta += mAngularVelocity;
@@ -42,7 +41,6 @@ void Application::render() {
     sf::VertexArray masslessRod(sf::LineStrip, 2);
     masslessRod[0].position = mFrictionlessPivot.getPosition();
     masslessRod[1].position = mBob.getPosition();
-
     mWindow.clear(sf::Color::Black);
     mWindow.draw(masslessRod);
     mWindow.draw(mFrictionlessPivot);
