@@ -6,7 +6,7 @@
 
 class Pendulum : public sf::Drawable {
 public:
-    Pendulum();
+    Pendulum(const sf::Vector2f &position, float theta);
 
     void update(const sf::Time &deltaTime);
 

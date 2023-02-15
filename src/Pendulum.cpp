@@ -2,9 +2,9 @@
 
 #include <cmath>
 
-Pendulum::Pendulum() {
+Pendulum::Pendulum(const sf::Vector2f &position, float theta) : mTheta(theta) {
     mFrictionlessPivot.setOrigin(2.f, 2.f);
-    mFrictionlessPivot.setPosition(400.f, 0.f);
+    mFrictionlessPivot.setPosition(position);
     mBob.setOrigin(20.f, 20.f);
 }
 

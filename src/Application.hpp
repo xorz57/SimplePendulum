@@ -20,5 +20,5 @@ private:
     sf::String mTitle{"SimplePendulum"};
     sf::ContextSettings mSettings{0U, 0U, 8U};
 
-    Pendulum mPendulum;
+    Pendulum mPendulum{{400.f, 0.f}, std::numbers::pi_v<float> / 4.f};
 };
