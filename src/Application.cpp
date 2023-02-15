@@ -25,11 +25,11 @@ void Application::processEvents() {
 }
 
 void Application::update(const sf::Time &deltaTime) {
-    mPendulum.update(deltaTime);
+    mSimplePendulum.update(deltaTime);
 }
 
 void Application::render() {
     mWindow.clear(sf::Color::Black);
-    mWindow.draw(mPendulum);
+    mWindow.draw(mSimplePendulum);
     mWindow.display();
 }

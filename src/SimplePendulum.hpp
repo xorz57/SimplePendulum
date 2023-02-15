@@ -4,9 +4,9 @@
 
 #include <numbers>
 
-class Pendulum : public sf::Drawable {
+class SimplePendulum : public sf::Drawable {
 public:
-    Pendulum(const sf::Vector2f &position, float theta);
+    SimplePendulum(const sf::Vector2f &position, float theta);
 
     void update(const sf::Time &deltaTime);
 

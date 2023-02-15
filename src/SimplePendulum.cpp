@@ -1,14 +1,14 @@
-#include "Pendulum.hpp"
+#include "SimplePendulum.hpp"
 
 #include <cmath>
 
-Pendulum::Pendulum(const sf::Vector2f &position, float theta) : mTheta(theta) {
+SimplePendulum::SimplePendulum(const sf::Vector2f &position, float theta) : mTheta(theta) {
     mFrictionlessPivot.setOrigin(2.f, 2.f);
     mFrictionlessPivot.setPosition(position);
     mBob.setOrigin(20.f, 20.f);
 }
 
-void Pendulum::update(const sf::Time &deltaTime) {
+void SimplePendulum::update(const sf::Time &deltaTime) {
     mAngularAcceleration = -mG / mL * std::sin(mTheta);
     mAngularVelocity += mAngularAcceleration;
     mAngularVelocity *= mZeta;
@@ -18,7 +18,7 @@ void Pendulum::update(const sf::Time &deltaTime) {
     mMasslessRod[1].position = mBob.getPosition();
 }
 
-void Pendulum::draw(sf::RenderTarget &target, sf::RenderStates states) const {
+void SimplePendulum::draw(sf::RenderTarget &target, sf::RenderStates states) const {
     target.draw(mMasslessRod, states);
     target.draw(mFrictionlessPivot, states);
     target.draw(mBob, states);
