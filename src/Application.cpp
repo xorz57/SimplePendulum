@@ -25,7 +25,7 @@ void Application::processEvents() {
 }
 
 void Application::update(const sf::Time &deltaTime) {
-    mSimplePendulum.update(deltaTime, 8);
+    mSimplePendulum.update(deltaTime, 8U);
 }
 
 void Application::render() {
