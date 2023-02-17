@@ -8,7 +8,7 @@ class SimplePendulum : public sf::Drawable {
 public:
     SimplePendulum(const sf::Vector2f &position, float theta);
 
-    void update(const sf::Time &deltaTime, unsigned int steps = 1);
+    void update(const sf::Time &deltaTime);
 
     void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
 
