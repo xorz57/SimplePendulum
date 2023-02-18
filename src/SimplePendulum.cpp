@@ -9,10 +9,10 @@ SimplePendulum::SimplePendulum(const sf::Vector2f &position, float theta) : mThe
 }
 
 void SimplePendulum::update(const sf::Time &deltaTime) {
-    mAngularAcceleration = -mG / mL * std::sin(mTheta);
-    mAngularVelocity += mAngularAcceleration * deltaTime.asSeconds();
-    mAngularVelocity *= mZeta;
-    mTheta += mAngularVelocity * deltaTime.asSeconds();
+    mAlpha = -mG / mL * std::sin(mTheta);
+    mOmega += mAlpha * deltaTime.asSeconds();
+    mOmega *= mZeta;
+    mTheta += mOmega * deltaTime.asSeconds();
     mBob.setPosition(mFrictionlessPivot.getPosition() + mL * sf::Vector2f(std::sin(mTheta), std::cos(mTheta)));
     mMasslessRod[0].position = mFrictionlessPivot.getPosition();
     mMasslessRod[1].position = mBob.getPosition();

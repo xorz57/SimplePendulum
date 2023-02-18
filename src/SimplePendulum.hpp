@@ -17,8 +17,8 @@ private:
     sf::CircleShape mBob{20.f};
     sf::VertexArray mMasslessRod{sf::LineStrip, 2};
 
-    float mAngularAcceleration{0.f};
-    float mAngularVelocity{0.f};
+    float mAlpha{0.f};
+    float mOmega{0.f};
     float mTheta{std::numbers::pi_v<float> / 4.f};
 
     const float mZeta{0.999f};
