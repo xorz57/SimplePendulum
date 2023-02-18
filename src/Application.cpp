@@ -7,15 +7,14 @@ Application::Application() {
 
 void Application::run() {
     auto clock = sf::Clock();
-    sf::Time timeSinceLastUpdate = sf::Time::Zero;
-    sf::Time stepTime{sf::seconds(1.f / 128.f)};
+    sf::Time accumulatorTime = sf::Time::Zero;
+    sf::Time deltaTime{sf::seconds(1.f / 128.f)};
     while (mWindow.isOpen()) {
-        sf::Time deltaTime = clock.restart();
-        timeSinceLastUpdate += deltaTime;
-        while (timeSinceLastUpdate > stepTime) {
-            timeSinceLastUpdate -= stepTime;
+        accumulatorTime += clock.restart();
+        while (accumulatorTime > deltaTime) {
+            accumulatorTime -= deltaTime;
             processEvents();
-            update(stepTime, 4U);
+            update(deltaTime);
         }
         render();
     }
@@ -30,8 +29,8 @@ void Application::processEvents() {
     }
 }
 
-void Application::update(const sf::Time &stepTime, unsigned int steps) {
-    mSimplePendulum.update(stepTime, steps);
+void Application::update(const sf::Time &deltaTime) {
+    mSimplePendulum.update(deltaTime);
 }
 
 void Application::render() {

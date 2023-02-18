@@ -11,7 +11,7 @@ public:
 private:
     void processEvents();
 
-    void update(const sf::Time &stepTime, unsigned int steps = 1U);
+    void update(const sf::Time &deltaTime);
 
     void render();
 

@@ -8,7 +8,7 @@ class SimplePendulum : public sf::Drawable {
 public:
     SimplePendulum(const sf::Vector2f &position, float theta);
 
-    void update(const sf::Time &stepTime, unsigned int steps);
+    void update(const sf::Time &deltaTime);
 
     void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
 
@@ -22,6 +22,6 @@ private:
     float mTheta{std::numbers::pi_v<float> / 4.f};
 
     const float mZeta{0.999f};
-    const float mG{100.f};
+    const float mG{900.f};
     const float mL{300.f};
 };
