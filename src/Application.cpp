@@ -22,8 +22,17 @@ void Application::run() {
 void Application::processEvents() {
     auto event = sf::Event();
     while (mWindow.pollEvent(event)) {
-        if (event.type == sf::Event::Closed || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
-            mWindow.close();
+        switch (event.type) {
+            case sf::Event::Closed:
+                mWindow.close();
+                break;
+            case sf::Event::KeyPressed:
+                if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
+                    mWindow.close();
+                }
+                break;
+            default:
+                break;
         }
     }
 }
