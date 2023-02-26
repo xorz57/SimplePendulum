@@ -2,7 +2,6 @@
 
 Application::Application() {
     mWindow.create(mMode, mTitle, sf::Style::Close, mSettings);
-    mWindow.setFramerateLimit(60U);
 }
 
 void Application::run() {
