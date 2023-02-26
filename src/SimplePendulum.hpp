@@ -17,11 +17,11 @@ private:
     sf::CircleShape mBob{20.f};
     sf::VertexArray mMasslessRod{sf::LineStrip, 2};
 
-    float mAlpha{0.f};
-    float mOmega{0.f};
+    float mAngularVelocity{0.f};
     float mTheta{std::numbers::pi_v<float> / 4.f};
 
     const float mZeta{0.999f};
-    const float mG{900.f};
-    const float mL{300.f};
+    const float mGravitationalAcceleration{900.f};
+    const float mLength{300.f};
+    const float mMass{20.f};
 };
