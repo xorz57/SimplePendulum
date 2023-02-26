@@ -13,7 +13,9 @@ void Application::run() {
         while (accumulatorTime > deltaTime) {
             accumulatorTime -= deltaTime;
             processEvents();
-            update(deltaTime);
+            if (mRunning) {
+                update(deltaTime);
+            }
         }
         render();
     }
@@ -28,7 +30,7 @@ void Application::processEvents() {
                 break;
             case sf::Event::KeyPressed:
                 if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
-                    mWindow.close();
+                    mRunning = !mRunning;
                 }
                 break;
             default:
