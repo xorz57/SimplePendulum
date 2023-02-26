@@ -21,7 +21,7 @@ private:
     float mTheta{std::numbers::pi_v<float> / 4.f};
 
     const float mZeta{0.999f};
-    const float mGravitationalAcceleration{900.f};
+    const float mGravitationalAcceleration{1000.f};
     const float mLength{300.f};
     const float mMass{20.f};
 };
