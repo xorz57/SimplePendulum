@@ -29,7 +29,7 @@ void Application::processEvents() {
                 mWindow.close();
                 break;
             case sf::Event::KeyPressed:
-                if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
+                if (event.key.code == sf::Keyboard::Escape) {
                     mRunning = !mRunning;
                 }
                 break;
