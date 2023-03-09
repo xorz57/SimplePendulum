@@ -2,9 +2,9 @@
 
 #include <cmath>
 
-SimplePendulum::SimplePendulum(const sf::Vector2f &position, float theta) : mPosition(position), mTheta(theta) {
+SimplePendulum::SimplePendulum(const sf::Vector2f &position, float theta) : mFrictionlessPivotPosition(position), mTheta(theta) {
     mFrictionlessPivot.setOrigin(2.f, 2.f);
-    mFrictionlessPivot.setPosition(mPosition);
+    mFrictionlessPivot.setPosition(mFrictionlessPivotPosition);
     mBob.setOrigin(20.f, 20.f);
 }
 
@@ -15,8 +15,8 @@ void SimplePendulum::Update(const sf::Time &deltaTime) {
     mOmega += angularAcceleration * deltaTime.asSeconds();
     mOmega *= mZeta;
     mTheta += mOmega * deltaTime.asSeconds();
-    mBob.setPosition(mPosition + mLength * sf::Vector2f(std::sin(mTheta), std::cos(mTheta)));
-    mMasslessRod[0].position = mPosition;
+    mBob.setPosition(mFrictionlessPivotPosition + mLength * sf::Vector2f(std::sin(mTheta), std::cos(mTheta)));
+    mMasslessRod[0].position = mFrictionlessPivotPosition;
     mMasslessRod[1].position = mBob.getPosition();
 }
 

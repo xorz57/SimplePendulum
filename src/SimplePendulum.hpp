@@ -17,7 +17,7 @@ private:
     sf::CircleShape mBob{20.f};
     sf::VertexArray mMasslessRod{sf::LineStrip, 2};
 
-    sf::Vector2f mPosition;
+    sf::Vector2f mFrictionlessPivotPosition;
 
     float mOmega{0.f};
     float mTheta{std::numbers::pi_v<float> / 4.f};
