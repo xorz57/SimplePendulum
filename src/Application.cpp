@@ -6,7 +6,7 @@ Application::Application() {
 
 void Application::run() {
     auto clock = sf::Clock();
-    sf::Time accumulatorTime = sf::Time::Zero;
+    sf::Time accumulatorTime{sf::Time::Zero};
     sf::Time deltaTime{sf::seconds(1.f / 128.f)};
     while (mWindow.isOpen()) {
         accumulatorTime += clock.restart();
