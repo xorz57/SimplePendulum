@@ -4,7 +4,7 @@ Application::Application() {
     mWindow.create(mMode, mTitle, sf::Style::Close, mSettings);
 }
 
-void Application::run() {
+void Application::Run() {
     auto clock = sf::Clock();
     sf::Time accumulatorTime{sf::Time::Zero};
     sf::Time deltaTime{sf::seconds(1.f / 128.f)};
@@ -12,16 +12,16 @@ void Application::run() {
         accumulatorTime += clock.restart();
         while (accumulatorTime > deltaTime) {
             accumulatorTime -= deltaTime;
-            processEvents();
+            ProcessEvents();
             if (mRunning) {
-                update(deltaTime);
+                Update(deltaTime);
             }
         }
-        render();
+        Render();
     }
 }
 
-void Application::processEvents() {
+void Application::ProcessEvents() {
     auto event = sf::Event();
     while (mWindow.pollEvent(event)) {
         switch (event.type) {
@@ -39,12 +39,12 @@ void Application::processEvents() {
     }
 }
 
-void Application::update(const sf::Time &deltaTime) {
-    mSimplePendulum.update(deltaTime);
+void Application::Update(const sf::Time &deltaTime) {
+    mSimplePendulum.Update(deltaTime);
 }
 
-void Application::render() {
+void Application::Render() {
     mWindow.clear(sf::Color::Black);
-    mWindow.draw(mSimplePendulum);
+    mSimplePendulum.Render(mWindow);
     mWindow.display();
 }

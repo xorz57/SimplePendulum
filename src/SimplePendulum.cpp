@@ -8,7 +8,7 @@ SimplePendulum::SimplePendulum(const sf::Vector2f &position, float theta) : mPos
     mBob.setOrigin(20.f, 20.f);
 }
 
-void SimplePendulum::update(const sf::Time &deltaTime) {
+void SimplePendulum::Update(const sf::Time &deltaTime) {
     const float force = -mMass * mGravitationalAcceleration * std::sin(mTheta);
     const float acceleration = force / mMass;
     const float angularAcceleration = acceleration / mLength;
@@ -20,8 +20,8 @@ void SimplePendulum::update(const sf::Time &deltaTime) {
     mMasslessRod[1].position = mBob.getPosition();
 }
 
-void SimplePendulum::draw(sf::RenderTarget &target, sf::RenderStates states) const {
-    target.draw(mMasslessRod, states);
-    target.draw(mFrictionlessPivot, states);
-    target.draw(mBob, states);
+void SimplePendulum::Render(sf::RenderTarget &target) const {
+    target.draw(mMasslessRod);
+    target.draw(mFrictionlessPivot);
+    target.draw(mBob);
 }

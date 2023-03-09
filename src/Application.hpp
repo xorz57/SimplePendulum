@@ -6,14 +6,14 @@ class Application {
 public:
     Application();
 
-    void run();
+    void Run();
 
 private:
-    void processEvents();
+    void ProcessEvents();
 
-    void update(const sf::Time &deltaTime);
+    void Update(const sf::Time &deltaTime);
 
-    void render();
+    void Render();
 
     sf::RenderWindow mWindow;
     sf::VideoMode mMode{800U, 600U};

@@ -4,22 +4,22 @@
 
 #include <numbers>
 
-class SimplePendulum : public sf::Drawable {
+class SimplePendulum {
 public:
     SimplePendulum(const sf::Vector2f &position, float theta);
 
-    void update(const sf::Time &deltaTime);
+    void Update(const sf::Time &deltaTime);
 
-    void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
+    void Render(sf::RenderTarget &target) const;
 
 private:
     sf::CircleShape mFrictionlessPivot{2.f};
     sf::CircleShape mBob{20.f};
     sf::VertexArray mMasslessRod{sf::LineStrip, 2};
 
-    float mOmega{0.f};
-
     sf::Vector2f mPosition;
+
+    float mOmega{0.f};
     float mTheta{std::numbers::pi_v<float> / 4.f};
 
     const float mZeta{0.999f};
