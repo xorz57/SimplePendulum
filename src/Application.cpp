@@ -17,7 +17,9 @@ void Application::Run() {
                 Update(deltaTime);
             }
         }
+        RenderBegin();
         Render();
+        RenderEnd();
     }
 }
 
@@ -43,8 +45,14 @@ void Application::Update(const sf::Time &deltaTime) {
     mSimplePendulum.Update(deltaTime);
 }
 
-void Application::Render() {
+void Application::RenderBegin() {
     mWindow.clear(sf::Color::Black);
+}
+
+void Application::Render() {
     mSimplePendulum.Render(mWindow);
+}
+
+void Application::RenderEnd() {
     mWindow.display();
 }

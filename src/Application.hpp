@@ -13,7 +13,11 @@ private:
 
     void Update(const sf::Time &deltaTime);
 
+    void RenderBegin();
+
     void Render();
+
+    void RenderEnd();
 
     sf::RenderWindow mWindow;
     sf::VideoMode mMode{800U, 600U};
